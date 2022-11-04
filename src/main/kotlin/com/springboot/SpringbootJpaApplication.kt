@@ -1,4 +1,4 @@
-package com.springboot.springbootjpa
+package com.springboot
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
