@@ -8,3 +8,4 @@ Swagger Ui 설정 오류<br>
 
 테스트 코드 실행 오류 <br>
 - org.junit.jupiter.api.extension.ParameterResolutionException: No ParameterResolver registered for parameter
+- 해결 원인 - @Autowired constructor 선언을 하여 repository 의존성 주입 해결
