@@ -2,7 +2,7 @@ package com.springboot.client.dto
 
 import io.swagger.annotations.ApiModelProperty
 
-object BookDto {
+class BookDto {
 
     class BookRequest(
         @ApiModelProperty(name = "")
@@ -23,8 +23,9 @@ object BookDto {
     }
 
     class BookResponse(
+
         @ApiModelProperty(name = "")
-        val no : Long?= null,
+        val id : Long?= null,
 
         @ApiModelProperty(name = "")
         val book_title: String,
@@ -35,7 +36,6 @@ object BookDto {
         @ApiModelProperty("")
         val book_content: String,
     ){
-
 
 
     }
