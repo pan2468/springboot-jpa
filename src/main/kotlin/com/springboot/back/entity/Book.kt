@@ -11,6 +11,7 @@ import javax.persistence.*
 @Getter @Setter
 @ToString
 data class Book (
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: Long ?= null,
