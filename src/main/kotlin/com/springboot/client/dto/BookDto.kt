@@ -5,8 +5,6 @@ import io.swagger.annotations.ApiModelProperty
 class BookDto {
 
     class BookRequest(
-        @ApiModelProperty(name = "번호")
-        val id : Long?= null,
 
         @ApiModelProperty(name = "도서 제목", value = "제목 입니다.", required = true)
         val title: String,
@@ -25,7 +23,7 @@ class BookDto {
     class BookResponse(
 
         @ApiModelProperty(name = "번호")
-        val id : Long?= null,
+        val id: Long?,
 
         @ApiModelProperty(name = "도서 제목", value = "제목 받기.", required = true)
         val book_title: String,

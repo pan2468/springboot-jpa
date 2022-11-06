@@ -3,6 +3,7 @@ package com.springboot.client.controller
 import com.springboot.client.dto.BookDto
 import com.springboot.client.service.BookDtoService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -17,16 +18,20 @@ class BookController @Autowired constructor (
 
         // 도서 상품 등록
         @PostMapping("/save")
-        fun booksSave(@RequestBody bookRequest: BookDto.BookRequest): BookDto.BookResponse {
-             val bookList = bookDtoService.booksSave(bookRequest)
+        fun booksSave(@RequestBody bookRequest: BookDto.BookRequest) {
+             val booksSave = bookDtoService.booksSave(bookRequest)
 
-             val bookResponse: BookDto.BookResponse = BookDto.BookResponse(
-                     book_title = bookList.title,
-                     book_name = bookList.book_name,
-                     book_content = bookList.content
-             )
-
-             return bookResponse
+//             val bookResponse: BookDto.BookResponse = BookDto.BookResponse(
+//                     book_title = bookList.title,
+//                     book_name = bookList.book_name,
+//                     book_content = bookList.content
+//             )
         }
 
+        // 도서 목록 조회
+        @GetMapping("/list")
+        fun booksList(): BookDto.BookResponse {
+
+            return bookDtoService.booksList()
+        }
 }

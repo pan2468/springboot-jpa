@@ -24,19 +24,15 @@ class BookDaoServiceTest @Autowired constructor(
     @Test
     @Transactional
     @DisplayName("도서 상품 등록")
-    fun book_reg (){
+    fun bookReg (){
         //given
-        val title  = "제목"
-        val name = "도서명"
-        val content = "내용"
-
-        //when
         val bookRequest: BookDto.BookRequest = BookDto.BookRequest(
             title = "제목",
             book_name = "도서명",
             content = "내용"
         )
 
+        //when
         val book: Book = Book(
             title = bookRequest.title,
             book_name = bookRequest.book_name,
@@ -48,16 +44,20 @@ class BookDaoServiceTest @Autowired constructor(
 
         //then
         val bookResponse: BookDto.BookResponse = BookDto.BookResponse(
+            id = book.id,
             book_title = book.title,
             book_name = book.book_name,
             book_content = book.content
         )
 
-        assertEquals(bookResponse.book_title, title)
-        assertEquals(bookResponse.book_name, name)
-        assertEquals(bookResponse.book_content, content)
+        assertEquals(bookResponse.id, 1)
+        assertEquals(bookResponse.book_title, "제목")
+        assertEquals(bookResponse.book_name, "도서명")
+        assertEquals(bookResponse.book_content, "내용")
 
     }
+
+
 }
 
 

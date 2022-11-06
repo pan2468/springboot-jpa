@@ -27,4 +27,12 @@ class BookDaoService @Autowired constructor (
                return bookRepository.save(this)
             }
         }
+
+    @Transactional(readOnly = true)
+    fun booksList(): List<Book> {
+
+        val booksList:List<Book> = bookRepository.findAll()
+
+        return booksList
+    }
 }
