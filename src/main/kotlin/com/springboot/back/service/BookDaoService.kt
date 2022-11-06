@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDateTime
+import java.util.*
 
 @Service
 class BookDaoService @Autowired constructor (
@@ -34,5 +35,12 @@ class BookDaoService @Autowired constructor (
         val booksList:List<Book> = bookRepository.findAll()
 
         return booksList
+    }
+
+    @Transactional(readOnly = true)
+    fun booksDetail(id: Long): Optional<Book> {
+        val booksDetail:Optional<Book> = bookRepository.findById(id)
+
+        return booksDetail
     }
 }

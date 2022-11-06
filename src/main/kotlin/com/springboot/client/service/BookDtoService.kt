@@ -5,6 +5,7 @@ import com.springboot.back.service.BookDaoService
 import com.springboot.client.dto.BookDto
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import java.util.Optional
 
 @Service
 class BookDtoService @Autowired constructor (
@@ -25,6 +26,19 @@ class BookDtoService @Autowired constructor (
                         book_title = booksList.get(0).title,
                         book_name = booksList.get(0).book_name,
                         book_content = booksList.get(0).content
+                )
+
+                return bookResponse
+        }
+
+        fun booksDetail(id: Long): BookDto.BookResponse {
+                val booksDetail: Optional<Book> = bookDaoService.booksDetail(id)
+
+                val bookResponse: BookDto.BookResponse = BookDto.BookResponse(
+                        id = booksDetail.get().id,
+                        book_title = booksDetail.get().title,
+                        book_name = booksDetail.get().book_name,
+                        book_content = booksDetail.get().content
                 )
 
                 return bookResponse

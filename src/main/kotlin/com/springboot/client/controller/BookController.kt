@@ -4,6 +4,7 @@ import com.springboot.client.dto.BookDto
 import com.springboot.client.service.BookDtoService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -28,6 +29,13 @@ class BookController @Autowired constructor (
         fun booksList(): BookDto.BookResponse {
 
             return bookDtoService.booksList()
+        }
+
+        // 도서 상세 조회
+        @GetMapping("/detail/{id}")
+        fun booksDetail(@PathVariable id : Long): BookDto.BookResponse{
+
+                return bookDtoService.booksDetail(id)
         }
 
 
