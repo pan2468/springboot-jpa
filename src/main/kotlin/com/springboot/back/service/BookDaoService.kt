@@ -23,7 +23,7 @@ class BookDaoService @Autowired constructor (
                 title = bookRequest.title,
                 book_name = bookRequest.book_name,
                 content = bookRequest.content,
-                createdDate = LocalDateTime.now()
+
             ).run {
                return bookRepository.save(this)
             }

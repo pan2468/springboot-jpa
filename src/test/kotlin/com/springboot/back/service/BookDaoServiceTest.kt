@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.TestPropertySource
 import org.springframework.transaction.annotation.Transactional
-import java.time.LocalDateTime
 import org.junit.jupiter.api.Assertions.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ActiveProfiles
@@ -38,7 +37,7 @@ class BookDaoServiceTest @Autowired constructor(
             title = bookRequest.title,
             book_name = bookRequest.book_name,
             content = bookRequest.content,
-            createdDate = LocalDateTime.now()
+
         )
         bookRepository.save(book)
         println(book.toString())

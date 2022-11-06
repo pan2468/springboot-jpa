@@ -3,7 +3,6 @@ package com.springboot.back.entity
 import lombok.Getter
 import lombok.Setter
 import lombok.ToString
-import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
@@ -22,8 +21,6 @@ data class Book (
 
     val content: String,
 
-    val createdDate : LocalDateTime
-
-    ){
+    ) : BaseEntity() {
 
 }
