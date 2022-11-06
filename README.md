@@ -12,5 +12,6 @@ Swagger Ui 설정 오류<br>
 
 테스트 코드 조회 리스트 오류 <br>
 - Index 0 out of bounds for length 0 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+- https://tyson.tistory.com/157 > 값을 삽입을 하지 않아 get(0) 빈 값으로 출력하여 오류발생
 
 
