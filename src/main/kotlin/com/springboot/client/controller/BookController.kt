@@ -21,11 +21,6 @@ class BookController @Autowired constructor (
         fun booksSave(@RequestBody bookRequest: BookDto.BookRequest) {
              val booksSave = bookDtoService.booksSave(bookRequest)
 
-//             val bookResponse: BookDto.BookResponse = BookDto.BookResponse(
-//                     book_title = bookList.title,
-//                     book_name = bookList.book_name,
-//                     book_content = bookList.content
-//             )
         }
 
         // 도서 목록 조회
@@ -34,4 +29,6 @@ class BookController @Autowired constructor (
 
             return bookDtoService.booksList()
         }
+
+
 }

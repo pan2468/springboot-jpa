@@ -12,6 +12,7 @@ import java.time.LocalDateTime
 import org.junit.jupiter.api.Assertions.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ActiveProfiles
+import java.util.*
 
 @SpringBootTest
 @TestPropertySource(locations = ["classpath:application.properties"])
@@ -54,6 +55,34 @@ class BookDaoServiceTest @Autowired constructor(
         assertEquals(bookResponse.book_title, "제목")
         assertEquals(bookResponse.book_name, "도서명")
         assertEquals(bookResponse.book_content, "내용")
+
+    }
+
+    @Test
+    @Transactional(readOnly = true)
+    @DisplayName("도서 상세 조회")
+    fun bookDetail(){
+        //given
+        this.bookReg()
+        val id : Long = 1L
+
+        //when
+        val booksDetail: Optional<Book> = bookRepository.findById(id)
+
+        val bookResponse: BookDto.BookResponse = BookDto.BookResponse(
+            id = booksDetail.get().id,
+            book_title = booksDetail.get().title,
+            book_name = booksDetail.get().book_name,
+            book_content = booksDetail.get().content
+        )
+
+        //then
+        println(bookResponse.book_name.toString()) // 상세조회 값 확인하기
+
+        assertEquals(bookResponse.id,1)
+        assertEquals(bookResponse.book_title,"제목")
+        assertEquals(bookResponse.book_name,"도서명")
+        assertEquals(bookResponse.book_content,"내용")
 
     }
 
