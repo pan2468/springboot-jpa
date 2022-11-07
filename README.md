@@ -14,4 +14,6 @@ Swagger Ui 설정 오류<br>
 - Index 0 out of bounds for length 0 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 - https://tyson.tistory.com/157 > 값을 삽입을 하지 않아 get(0) 빈 값으로 출력하여 오류발생
 
+테스트 코드 수정 오류 <br>
+- org.opentest4j.AssertionFailedError: expected: <제목> but was: <제목입니다>
 
