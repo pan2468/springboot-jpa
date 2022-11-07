@@ -13,14 +13,20 @@ data class Book (
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: Long ?= null,
+    var id: Long ?= null,
 
-    val title: String,
+    var title: String,
 
-    val book_name: String,
+    var book_name: String,
 
-    val content: String,
+    var content: String,
 
     ) : BaseEntity() {
+
+    fun updateBook(title: String, book_name: String, content: String){
+         this.title = title
+         this.book_name = book_name
+         this.content = content
+    }
 
 }

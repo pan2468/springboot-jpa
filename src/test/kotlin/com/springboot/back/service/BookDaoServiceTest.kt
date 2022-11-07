@@ -86,6 +86,36 @@ class BookDaoServiceTest @Autowired constructor(
     }
 
 
+    @Test
+    @Transactional
+    @DisplayName("도서 수정하기")
+    fun bookUpdate(){
+        //given
+        this.bookReg()
+
+        //when
+        val findById: Optional<Book> = bookRepository.findById(1L)
+        val bookUpdate: Book = findById.get()
+
+       bookUpdate.updateBook(
+            title = "제목입니다",
+            book_name = "책을 읽자",
+            content = "안녕하세요"
+        )
+
+        val update: Book = bookRepository.save(bookUpdate)
+
+        //then
+        println(update.toString())
+
+        assertEquals(update.title,"제목입니다")
+        assertEquals(update.book_name, "책을 읽자")
+        assertEquals(update.content, "안녕하세요")
+    }
+
+
+
+
 }
 
 
