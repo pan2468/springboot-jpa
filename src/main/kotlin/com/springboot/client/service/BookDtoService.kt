@@ -67,6 +67,10 @@ class BookDtoService @Autowired constructor (
                 return bookDetail
         }
 
+        fun bookDelete(id: Long) {
+           bookDaoService.bookDelete(id)
+        }
+
 }
 
 

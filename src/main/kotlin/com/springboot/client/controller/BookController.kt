@@ -5,6 +5,7 @@ import com.springboot.client.dto.BookDto
 import com.springboot.client.service.BookDtoService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.jpa.domain.AbstractPersistable_.id
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PathVariable
@@ -50,6 +51,12 @@ class BookController @Autowired constructor (
 
                 return bookDtoService.boardUpdate(id, bookRequest)
 
+        }
+
+        // 도서 삭제하기
+        @DeleteMapping("/delete/{id}")
+        fun booksDelete(@PathVariable id: Long){
+              bookDtoService.bookDelete(id)
         }
 
 

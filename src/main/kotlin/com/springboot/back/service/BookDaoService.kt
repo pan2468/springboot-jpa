@@ -61,4 +61,8 @@ class BookDaoService @Autowired constructor (
 
         return update
     }
+
+    fun bookDelete(id: Long) {
+        bookRepository.deleteById(id)
+    }
 }
