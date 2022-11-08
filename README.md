@@ -16,4 +16,4 @@ Swagger Ui 설정 오류<br>
 
 테스트 코드 수정 오류 <br>
 - org.opentest4j.AssertionFailedError: expected: <제목> but was: <제목입니다>
-
+- 해결 원인 - Entity 모델 필드 값 var 선언 후 테스트 코드 수정완료
