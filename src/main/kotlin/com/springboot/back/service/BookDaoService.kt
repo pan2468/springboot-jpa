@@ -6,7 +6,6 @@ import com.springboot.client.dto.BookDto
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import java.time.LocalDateTime
 import java.util.*
 
 @Service
@@ -42,5 +41,24 @@ class BookDaoService @Autowired constructor (
         val booksDetail:Optional<Book> = bookRepository.findById(id)
 
         return booksDetail
+    }
+
+
+    fun booksEdit(id: Long): Optional<Book> {
+        return bookRepository.findById(id)
+    }
+
+
+    fun boardUpdate(title: String, book_name: String, content: String): Book {
+
+        val edit: Book = Book(
+            title = title,
+            book_name = book_name,
+            content = content
+        )
+
+        val update: Book = bookRepository.save(edit)
+
+        return update
     }
 }

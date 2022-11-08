@@ -1,6 +1,7 @@
 package com.springboot.client.service
 
 import com.springboot.back.entity.Book
+import com.springboot.back.repository.BookRepository
 import com.springboot.back.service.BookDaoService
 import com.springboot.client.dto.BookDto
 import org.springframework.beans.factory.annotation.Autowired
@@ -9,8 +10,8 @@ import java.util.Optional
 
 @Service
 class BookDtoService @Autowired constructor (
-        val bookDaoService: BookDaoService
-
+        val bookDaoService: BookDaoService,
+        val bookRepository: BookRepository
         ){
 
         // 도서 상품 등록
@@ -44,4 +45,28 @@ class BookDtoService @Autowired constructor (
                 return bookResponse
         }
 
+
+        fun booksEdit(id: Long): Optional<Book> {
+                return bookDaoService.booksEdit(id)
+        }
+
+        fun boardUpdate(id: Long, bookRequest: BookDto.BookRequest): Optional<Book> {
+
+                val bookDetail: Optional<Book> = bookRepository.findById(id)
+
+                bookDetail.get().title = bookRequest.title
+                bookDetail.get().book_name = bookRequest.book_name
+                bookDetail.get().content = bookRequest.content
+
+                bookDaoService.boardUpdate(
+                        bookDetail.get().title,
+                        bookDetail.get().book_name,
+                        bookDetail.get().content
+                        )
+
+                return bookDetail
+        }
+
 }
+
+

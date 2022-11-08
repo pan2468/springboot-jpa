@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Assertions.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ActiveProfiles
 import java.util.*
+import kotlin.collections.List
 
 @SpringBootTest
 @TestPropertySource(locations = ["classpath:application.properties"])
@@ -27,6 +28,7 @@ class BookDaoServiceTest @Autowired constructor(
     fun bookReg (){
         //given
         val bookRequest: BookDto.BookRequest = BookDto.BookRequest(
+            id = 2,
             title = "제목",
             book_name = "도서명",
             content = "내용"
@@ -113,6 +115,21 @@ class BookDaoServiceTest @Autowired constructor(
         assertEquals(update.content, "안녕하세요")
     }
 
+
+    @Test
+    @DisplayName("도서 삭제하기")
+    fun bookDelete(){
+        //given
+        this.bookReg()
+        val id: Long = 1L
+
+        //when
+        bookRepository.deleteById(1L)
+        val booksList: List<Book> = bookRepository.findAll()
+
+        //then
+        println(booksList.toString())
+    }
 
 
 
