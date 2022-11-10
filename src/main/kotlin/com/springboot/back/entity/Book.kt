@@ -15,10 +15,13 @@ data class Book (
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long ?= null,
 
+    @Column(name = "book_title", nullable = false, length = 300)
     var title: String,
 
+    @Column(name = "book_name", nullable = false, length = 250)
     var book_name: String,
 
+    @Column(name = "content", length = 250)
     var content: String,
 
     ) : BaseEntity() {

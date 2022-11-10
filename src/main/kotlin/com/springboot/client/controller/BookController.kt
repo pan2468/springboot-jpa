@@ -25,7 +25,9 @@ class BookController @Autowired constructor (
 
         // 도서 상품 등록
         @PostMapping("/save")
-        fun booksSave(@RequestBody bookRequest: BookDto.BookRequest) {
+        fun booksSave(
+                @RequestBody bookRequest: BookDto.BookRequest
+        ) {
              val booksSave = bookDtoService.booksSave(bookRequest)
 
         }
@@ -39,7 +41,9 @@ class BookController @Autowired constructor (
 
         // 도서 상세 조회
         @GetMapping("/detail/{id}")
-        fun booksDetail(@PathVariable id : Long): BookDto.BookResponse{
+        fun booksDetail(
+                @PathVariable id : Long
+        ): BookDto.BookResponse{
 
                 return bookDtoService.booksDetail(id)
         }
@@ -47,15 +51,17 @@ class BookController @Autowired constructor (
         // 도서 수정하기
         @PutMapping("/edit/{id}")
         fun booksEdit(@PathVariable id: Long,
-                      @RequestBody bookRequest: BookDto.BookRequest): Optional<Book> {
+                      @RequestBody bookRequest: BookDto.BookRequest
+        ): Optional<Book> {
 
                 return bookDtoService.boardUpdate(id, bookRequest)
-
         }
 
         // 도서 삭제하기
         @DeleteMapping("/delete/{id}")
-        fun booksDelete(@PathVariable id: Long){
+        fun booksDelete(
+                @PathVariable id: Long
+        ){
               bookDtoService.bookDelete(id)
         }
 
