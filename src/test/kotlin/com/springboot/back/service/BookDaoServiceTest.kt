@@ -2,24 +2,24 @@ package com.springboot.back.service
 
 import com.springboot.back.entity.Book
 import com.springboot.back.repository.BookRepository
+import com.springboot.back.repository.MemberRepository
 import com.springboot.client.dto.BookDto
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestPropertySource
 import org.springframework.transaction.annotation.Transactional
-import org.junit.jupiter.api.Assertions.*
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.test.context.ActiveProfiles
 import java.util.*
-import kotlin.collections.List
 
 @SpringBootTest
 @TestPropertySource(locations = ["classpath:application.properties"])
 @ActiveProfiles("test")
 class BookDaoServiceTest @Autowired constructor(
-
     val bookRepository: BookRepository,
+    val memberRepository: MemberRepository
 ){
 
     @Test
@@ -130,9 +130,6 @@ class BookDaoServiceTest @Autowired constructor(
         //then
         println(booksList.toString())
     }
-
-
-
 }
 
 

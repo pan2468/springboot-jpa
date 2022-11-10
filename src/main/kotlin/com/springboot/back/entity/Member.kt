@@ -16,6 +16,9 @@ data class Member(
     @Column(name = "member_id")
     val id:Long ?= null,
 
+    @Column(name = "email", nullable = false, length = 255)
+    val email:String ?= null,
+
     @Column(name = "member_name", nullable = false, length = 255)
     val name: String, // 회원이름
 
