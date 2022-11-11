@@ -58,18 +58,4 @@ class MemberDaoServiceTest @Autowired constructor(
         assertEquals(memberEntity.phone,"010-1111-2222")
         assertEquals(memberEntity.registration,"981119-1185118")
     }
-
-//    @Test
-//    @Transactional(readOnly = true)
-//    @DisplayName("회원과 도서 조인 매핑 테스트")
-//    fun book_join_test (){
-//        //given
-//
-//
-//        //when
-//
-//
-//        //then
-//    }
-
 }
