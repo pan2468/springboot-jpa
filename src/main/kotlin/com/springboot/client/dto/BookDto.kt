@@ -21,7 +21,6 @@ class BookDto {
 
     ){
 
-
     }
 
     class BookResponse(
@@ -38,13 +37,8 @@ class BookDto {
         @ApiModelProperty(name = "도서 내용" , value = "내용 받기", required = true)
         var book_content: String,
 
-//        @ApiModelProperty(name = "등록 날짜", value = "등록 날짜", required = true)
-//        val createdDate: LocalDateTime
     ){
 
-
     }
-
-
 }
 
