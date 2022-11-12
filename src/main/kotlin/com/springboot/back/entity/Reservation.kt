@@ -6,18 +6,15 @@ import lombok.ToString
 import javax.persistence.*
 
 @Entity
-@Table(name = "orders")
+@Table(name = "reservations")
 @Getter @Setter
 @ToString
-data class Order(
+data class Reservation( // 예약
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "order_id")
+    @Column(name = "reservation_id")
     val id: Long ?= null,
-
-    @Column(name = "price", nullable = false)
-    val price: Int ?= 0,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")

@@ -9,7 +9,7 @@ import javax.persistence.*
 @Table(name = "books")
 @Getter @Setter
 @ToString
-data class Book (
+data class Book ( // 도서
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

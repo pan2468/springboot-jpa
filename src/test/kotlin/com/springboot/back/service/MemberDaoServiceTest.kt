@@ -58,4 +58,34 @@ class MemberDaoServiceTest @Autowired constructor(
         assertEquals(memberEntity.phone,"010-1111-2222")
         assertEquals(memberEntity.registration,"981119-1185118")
     }
+
+    @Test
+    fun memberList (){
+        //given
+        this.member_sign()
+
+        //when
+        val member:List<Member> = memberRepository.findAll()
+        val memberList:Member = member.get(0)
+
+        val memberDtoResponse: MemberDto.MemberResponse = MemberDto.MemberResponse(
+            member_id = memberList.id,
+            member_email = memberList.email,
+            member_name = memberList.name,
+            member_password = memberList.password,
+            member_address = memberList.address,
+            member_phone = memberList.phone,
+            member_registration = memberList.registration,
+        )
+
+        //then
+        assertEquals(memberDtoResponse.member_id,1L)
+        assertEquals(memberDtoResponse.member_email,"test@test.com")
+        assertEquals(memberDtoResponse.member_name,"홍길동")
+        assertEquals(memberDtoResponse.member_password,"1234")
+        assertEquals(memberDtoResponse.member_address,"경기도 부천시")
+        assertEquals(memberDtoResponse.member_phone,"010-1111-2222")
+        assertEquals(memberDtoResponse.member_registration,"981119-1185118")
+
+    }
 }
