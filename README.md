@@ -25,3 +25,4 @@ Swagger Ui 설정 오류<br>
 
 H2 DB 설정 오류 <br>
 - org.h2.jdbc.JdbcSQLNonTransientConnectionException: Connection is broken: "java.net.SocketTimeoutException: connect timed out: localhost" [90067-200]
+- 해결 원인 참조 https://www.inflearn.com/questions/138374 
