@@ -22,3 +22,6 @@ Swagger Ui 설정 오류<br>
 - foreign key FK2nuutcrhjopei9a5imkbd67w6" via JDBC Statement
 - 해결원인 - member_id 값을 통해 book Entity @ManyToOne 어노테이션 설정으로 개선 
 - 해결 참조 https://soojong.tistory.com/entry/JPA-ManyToOne-OneToMany-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0  
+
+H2 DB 설정 오류 <br>
+- org.h2.jdbc.JdbcSQLNonTransientConnectionException: Connection is broken: "java.net.SocketTimeoutException: connect timed out: localhost" [90067-200]
