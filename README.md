@@ -1,5 +1,12 @@
 # springboot-jpa
 
+### 개발환경
++ Java 11
++ SpringBoot 2.6.3
++ Gradle
++ TDD
++ H2 DataBase
+
 ### 트러블 이슈
 
 Swagger Ui 설정 오류<br>
